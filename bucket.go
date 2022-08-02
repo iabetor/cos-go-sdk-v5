@@ -26,11 +26,12 @@ type BucketGetResult struct {
 
 // BucketGetOptions is the option of GetBucket
 type BucketGetOptions struct {
-	Prefix       string `url:"prefix,omitempty"`
-	Delimiter    string `url:"delimiter,omitempty"`
-	EncodingType string `url:"encoding-type,omitempty"`
-	Marker       string `url:"marker,omitempty"`
-	MaxKeys      int    `url:"max-keys,omitempty"`
+	Prefix        string       `url:"prefix,omitempty"`
+	Delimiter     string       `url:"delimiter,omitempty"`
+	EncodingType  string       `url:"encoding-type,omitempty"`
+	Marker        string       `url:"marker,omitempty"`
+	MaxKeys       int          `url:"max-keys,omitempty"`
+	XOptionHeader *http.Header `header:"-,omitempty" url:"-" xml:"-"`
 }
 
 // Get Bucket请求等同于 List Object请求，可以列出该Bucket下部分或者所有Object，发起该请求需要拥有Read权限。
