@@ -40,11 +40,12 @@ type BucketGetOptions struct {
 func (s *BucketService) Get(ctx context.Context, opt *BucketGetOptions) (*BucketGetResult, *Response, error) {
 	var res BucketGetResult
 	sendOpt := sendOptions{
-		baseURL:  s.client.BaseURL.BucketURL,
-		uri:      "/",
-		method:   http.MethodGet,
-		optQuery: opt,
-		result:   &res,
+		baseURL:   s.client.BaseURL.BucketURL,
+		uri:       "/",
+		method:    http.MethodGet,
+		optQuery:  opt,
+		optHeader: opt.XOptionHeader,
+		result:    &res,
 	}
 	resp, err := s.client.send(ctx, &sendOpt)
 	return &res, resp, err
