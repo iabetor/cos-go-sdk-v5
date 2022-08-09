@@ -44,7 +44,7 @@ func (s *BucketService) Get(ctx context.Context, opt *BucketGetOptions) (*Bucket
 		uri:       "/",
 		method:    http.MethodGet,
 		optQuery:  opt,
-		optHeader: opt.XOptionHeader,
+		optHeader: opt,
 		result:    &res,
 	}
 	resp, err := s.client.send(ctx, &sendOpt)
